@@ -3,6 +3,7 @@ import './App.scss';
 import { FormGroup, FormControlLabel, Checkbox, Card, CardContent, Typography, ToggleButtonGroup, ToggleButton } from '@mui/material';
 import cards from './data/data.json';
 import Ticket from './components/Ticket';
+import { ICard } from './interfaces';
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
 
   const [transfers, setTransfers] = useState([0, 1, 2]);
   const [currency, setCurrency] = useState('₽');
-  const [data, setData] = useState(cards);
+  const [data, setData] = useState<ICard[]>(cards);
 
   const onTransferChange = (item: number) => {
     if (transfers.includes(item)) {
@@ -82,7 +83,18 @@ function App() {
           </Card>
         </aside>
         <main>
-          {data.map((card) => <Ticket />)}
+          {data.map((card) => <Ticket
+            key={card.price}
+            price={card.price}
+            start={card.start}
+            end={card.end}
+            startTime={card.startTime}
+            endTime={card.endTime}
+            startDate={card.startDate}
+            endDate={card.endDate}
+            transfers={card.transfers}
+            currency={currency}
+          />)}
         </main>
       </div>
     </div>

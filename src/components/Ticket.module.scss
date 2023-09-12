@@ -1,7 +1,33 @@
 .card {
     display: flex;
     margin-bottom: 15px;
+    width: 100%;
 }
 .buttonBlock {
     border-right: 1px solid lightgrey;
+}
+.dataBlock {
+    flex: auto;
+}
+.timeWrapper {
+    display: flex;
+    width: 100%;
+}
+.transferWrapper {
+    flex: auto;
+}
+.transfer {
+    padding-top: 10px;
+    color: gray;
+}
+.cityWrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.dateWrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: grey;
 }
