@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import './App.scss';
 import { FormGroup, FormControlLabel, Checkbox, Card, CardContent, Typography, ToggleButtonGroup, ToggleButton } from '@mui/material';
+import cards from './data/data.json';
+import Ticket from './components/Ticket';
+
 
 function App() {
+
   const usdCourse = 95;
   const euroCourse = 105;
   const allTransfers = [0, 1, 2, 3];
 
   const [transfers, setTransfers] = useState([0, 1, 2]);
   const [currency, setCurrency] = useState('₽');
+  const [data, setData] = useState(cards);
 
   const onTransferChange = (item: number) => {
     if (transfers.includes(item)) {
@@ -30,16 +35,21 @@ function App() {
   ) => {
     setCurrency(newCurrency);
     console.log(currency);
-    
+
   }
 
   return (
     <div className="app">
+      <header>
+        <div className="logoWrapper">
+          <img src={require('./assets/plane.png')} alt="airplane" className="logo" />
+        </div>
+      </header>
       <div className="container">
         <aside className="control">
           <Card>
             <CardContent>
-            <Typography component="div">
+              <Typography component="div">
                 ВАЛЮТА
               </Typography>
               <ToggleButtonGroup
@@ -48,6 +58,8 @@ function App() {
                 exclusive
                 onChange={onCurrencyChange}
                 aria-label="Platform"
+                fullWidth={true}
+                className="toggle"
               >
                 <ToggleButton value="₽">RUB</ToggleButton>
                 <ToggleButton value="$">USD</ToggleButton>
@@ -69,6 +81,9 @@ function App() {
             </CardContent>
           </Card>
         </aside>
+        <main>
+          {data.map((card) => <Ticket />)}
+        </main>
       </div>
     </div>
   );
