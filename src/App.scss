@@ -20,10 +20,20 @@
   display: flex;
   width: 90%;
   margin: 0 auto;
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
+  @media (max-width: 750px) {
+    width: 98%;
+  }
 }
 aside {
   margin-right: 15px;
   text-align: left;
+  @media (max-width: 1000px) {
+    margin-right: 0;
+    margin-bottom: 24px;
+  }
 }
 .toggle {
   margin-top: 10px;

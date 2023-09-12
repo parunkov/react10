@@ -2,13 +2,21 @@
     display: flex;
     margin-bottom: 15px;
     width: 100%;
+    @media (max-width: 750px) {
+        flex-direction: column;
+    }
 }
 .buttonBlock {
     border-right: 1px solid lightgrey;
+    @media (max-width: 750px) {
+        border-right: none;
+        border-bottom: 1px solid lightgrey;
+    }
 }
 .image {
     display: block;
     width: 250px;
+    margin: 0 auto;
 }
 .button {
     text-transform: none;
