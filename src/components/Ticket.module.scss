@@ -6,6 +6,13 @@
 .buttonBlock {
     border-right: 1px solid lightgrey;
 }
+.image {
+    display: block;
+    width: 250px;
+}
+.button {
+    text-transform: none;
+}
 .dataBlock {
     flex: auto;
 }
@@ -19,6 +26,21 @@
 .transfer {
     padding-top: 10px;
     color: gray;
+}
+.plane {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: -10px;
+}
+.line {
+    flex: auto;
+    height: 2px;
+    background: gray;
+}
+.planeIcon {
+    transform: rotate(90deg);
 }
 .cityWrapper {
     display: flex;

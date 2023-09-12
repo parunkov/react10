@@ -7,9 +7,6 @@ import { ICard } from './interfaces';
 
 
 function App() {
-
-  const usdCourse = 95;
-  const euroCourse = 105;
   const allTransfers = [0, 1, 2, 3];
 
   const [transfers, setTransfers] = useState([0, 1, 2]);

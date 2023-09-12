@@ -1,6 +1,7 @@
 import { ICard } from '../interfaces';
 import styles from './Ticket.module.scss';
 import { Card, CardContent, Button, Typography } from '@mui/material';
+import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
 
 function Ticket({ price, start, end, startTime, endTime, startDate, endDate, transfers, currency }: ICard) {
     const usdCourse = 95;
@@ -10,8 +11,8 @@ function Ticket({ price, start, end, startTime, endTime, startDate, endDate, tra
         <Card className={styles.card}>
             <div className={styles.buttonBlock}>
                 <CardContent >
-                    <img src={require('../assets/logo.gif')} alt="logo" />
-                    <Button variant="contained" color="warning">
+                    <img src={require('../assets/logo.gif')} alt="logo" className={styles.image} />
+                    <Button variant="contained" color="warning" fullWidth={true} className={styles.button}>
                         Купить<br />за {
                             currency === '₽' ? price.toLocaleString('ru-RU') :
                                 currency === '$' ? Math.round(price / usdCourse).toLocaleString('ru-RU') :
@@ -30,6 +31,10 @@ function Ticket({ price, start, end, startTime, endTime, startDate, endDate, tra
                             <Typography className={styles.transfer} component="div">
                             {transfers === 0 ? '' : transfers} {transfers === 0 ? 'Без пересадок' : transfers === 1 ? 'пересадка' : 'пересадки'}
                             </Typography>
+                            <div className={styles.plane}>
+                                <div className={styles.line}></div>
+                                <AirplanemodeActiveIcon className={styles.planeIcon} color="action" />
+                            </div>
                         </div>
                         <Typography variant="h3" component="div">
                             {endTime}
