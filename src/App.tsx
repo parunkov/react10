@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.scss';
 import { FormGroup, FormControlLabel, Checkbox, Card, CardContent, Typography, ToggleButtonGroup, ToggleButton } from '@mui/material';
 import cards from './data/data.json';
@@ -13,11 +13,15 @@ function App() {
   const [currency, setCurrency] = useState('₽');
   const [data, setData] = useState<ICard[]>(cards);
 
+  useEffect(() => {
+    setData(cards.filter((item) => transfers.includes(item.transfers)));
+  }, [transfers]);
+
   const onTransferChange = (item: number) => {
     if (transfers.includes(item)) {
-      setTransfers(transfers.filter((transfer) => transfer !== item))
+      setTransfers(transfers.filter((transfer) => transfer !== item));
     } else {
-      setTransfers([...transfers, item])
+      setTransfers([...transfers, item]);
     }
   }
   const onAllTransfersChange = (event: React.ChangeEvent<HTMLInputElement>) => {
