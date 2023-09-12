@@ -28,6 +28,17 @@ aside {
   margin-top: 10px;
   margin-bottom: 24px;
 }
+.MuiToggleButtonGroup-root .MuiToggleButton-root {
+  color: #1976d2;
+}
+.MuiToggleButtonGroup-root .MuiButtonBase-root.Mui-selected {
+  background: #1976d2;
+  color: white;
+}
+.MuiToggleButtonGroup-root .MuiButtonBase-root:hover {
+  background: rgba(25, 118, 210, 0.12);
+  color: #1976d2;
+}
 main {
   flex: auto;
 }
