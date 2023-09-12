@@ -14,7 +14,9 @@ function App() {
   const [data, setData] = useState<ICard[]>(cards);
 
   useEffect(() => {
-    setData(cards.filter((item) => transfers.includes(item.transfers)));
+    console.log(transfers);
+    
+    setData(cards.filter((item) => transfers.includes(item.transfers)).sort((first, second) => first.price - second.price));
   }, [transfers]);
 
   const onTransferChange = (item: number) => {
@@ -36,7 +38,6 @@ function App() {
     newCurrency: string,
   ) => {
     setCurrency(newCurrency);
-    console.log(currency);
 
   }
 
